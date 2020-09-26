@@ -1,0 +1,8 @@
+{
+    "domain": "maxcul",
+    "name": "MAX! via CUL-stick",
+    "documentation": "https://home-assistant.io/components/maxcul/",
+    "dependencies": [],
+    "codeowners": [ "@maufl" ],
+    "requirements": [ "pymaxcul==0.1.10" ]
+}

@@ -45,7 +45,7 @@ SCHEMA_SERVICE_ENABLE_PAIRING = vol.Schema({
 })
 
 
-def setup(hass, config):
+def setup(hass, config) -> bool:
     """
     Initialize the maxcul component.
 
@@ -106,5 +106,7 @@ def setup(hass, config):
         SERVICE_ENABLE_PAIRING,
         _service_enable_pairing,
         schema=SCHEMA_SERVICE_ENABLE_PAIRING)
+
+    hass.helpers.discovery.load_platform('climate', DOMAIN, {}, config)
 
     return True
