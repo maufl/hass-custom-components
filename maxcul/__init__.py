@@ -14,8 +14,6 @@ from homeassistant.helpers.dispatcher import dispatcher_send
 
 _LOGGER = logging.getLogger(__name__)
 
-REQUIREMENTS = ['pymaxcul==0.1.10']
-
 DOMAIN = 'maxcul'
 
 CONF_DEVICE_PATH = 'device_path'
@@ -39,11 +37,6 @@ SIGNAL_SHUTTER_UPDATE = DOMAIN + '.shutter_update'
 ATTR_DURATION = 'duration'
 
 SERVICE_ENABLE_PAIRING = 'enable_pairing'
-
-SCHEMA_SERVICE_ENABLE_PAIRING = vol.Schema({
-    vol.Optional('duration', default=30): cv.positive_int,
-})
-
 
 def setup(hass, config) -> bool:
     """
@@ -104,8 +97,7 @@ def setup(hass, config) -> bool:
     hass.services.register(
         DOMAIN,
         SERVICE_ENABLE_PAIRING,
-        _service_enable_pairing,
-        schema=SCHEMA_SERVICE_ENABLE_PAIRING)
+        _service_enable_pairing)
 
     hass.helpers.discovery.load_platform('climate', DOMAIN, {}, config)
 

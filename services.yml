@@ -1,0 +1,6 @@
+enable_pairing:
+  description: Enable pairing in the CUL stick
+  fields:
+    duration:
+      description: The duration for which pairing should be enabled in seconds
+      example: 30
